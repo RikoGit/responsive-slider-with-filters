@@ -1,5 +1,13 @@
 import React from "react";
+import Test from "../Test/index.jsx";
 
-const App = () => <div>test</div>;
+import Header from "../Header/index.jsx";
+
+const App = () => (
+  <div>
+    <Header />
+    <Test />
+  </div>
+);
 
 export default App;
