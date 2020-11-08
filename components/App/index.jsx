@@ -1,12 +1,12 @@
 import React from "react";
-import Test from "../Test/index.jsx";
 
 import Header from "../Header/index.jsx";
+import Swiper from "../Swiper/index.jsx";
 
 const App = () => (
   <div>
     <Header />
-    <Test />
+    <Swiper />
   </div>
 );
 
