@@ -1,19 +1,11 @@
 import React from "react";
 
-import countries from "../../countries.js";
+import Nav from "../Nav/index.jsx";
 
-const Header = () => (
+const Header = ({ onClick }) => (
   <header>
     <h2>Наши направления</h2>
-    <nav>
-      <ul>
-        {countries.map((country) => (
-          <li key={country.name}>
-            <a href="#">{country.name}</a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <Nav onClick={onClick} />
   </header>
 );
 
