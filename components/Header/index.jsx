@@ -8,7 +8,7 @@ const Header = () => (
     <nav>
       <ul>
         {countries.map((country) => (
-          <li key={country.id}>
+          <li key={country.name}>
             <a href="#">{country.name}</a>
           </li>
         ))}
