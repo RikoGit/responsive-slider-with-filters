@@ -1,0 +1,17 @@
+@media only screen and (max-width: 1439px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
+
+/*@media only screen and (max-width: 767px) {
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+}
+*/

@@ -1,0 +1,54 @@
+.header {
+  margin: 0;
+  padding: 0;
+}
+.header__title {
+  font-family: Golos;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 53px;
+  color: #fff;
+}
+.header__menu {
+}
+.countries {
+  margin: 10px 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.countries__item {
+  margin: 0 14px 0 0;
+}
+.countries__button {
+  padding: 8px 20px;
+  font-family: Golos;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  line-height: 20px;
+  color: #fff;
+  text-align: center;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.countries__button:active,
+.countries__button:focus,
+.countries__button_disabled {
+  border: none;
+  outline: none;
+  background: #80a0f2;
+}
+.countries__button:hover {
+  border: none;
+  outline: none;
+  background: #a5beff;
+}
+.countries__button_disabled:hover {
+  background: #80a0f2;
+}

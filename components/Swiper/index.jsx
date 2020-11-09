@@ -8,6 +8,8 @@ import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 
+import "./styles.scss";
+
 // install Swiper components
 SwiperCore.use([Navigation, Pagination]);
 
@@ -15,11 +17,11 @@ import Card from "../Card/index.jsx";
 
 export default ({ cards }) => (
   <Swiper
-    spaceBetween={50}
+    spaceBetween={10}
     breakpoints={{
       // when window width is >= 375 and <= 767
       375: {
-        spaceBetween: 20,
+        spaceBetween: 10,
         slidesPerView: 2,
       },
       // when window width is >= 768 and <= 1439
@@ -29,13 +31,16 @@ export default ({ cards }) => (
       },
       // when window width is >= 1440px
       1440: {
-        spaceBetween: 40,
+        spaceBetween: 30,
         slidesPerView: 6,
       },
     }}
     navigation
+    pagination={{ clickable: true }}
+    watchOverflow
     onSlideChange={() => console.log("slide change")}
     onSwiper={(swiper) => console.log(swiper)}
+    grabCursor
   >
     {cards.map((card) => (
       <SwiperSlide>
