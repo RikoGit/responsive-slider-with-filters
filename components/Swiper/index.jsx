@@ -18,6 +18,7 @@ import Card from "../Card/index.jsx";
 export default ({ cards }) => (
   <Swiper
     spaceBetween={10}
+    slidesPerColumn={2}
     breakpoints={{
       // when window width is >= 375 and <= 767
       375: {
