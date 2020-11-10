@@ -7,17 +7,22 @@ import countries from "../../countries.js";
 import "./styles.scss";
 
 const App = () => {
-  const cities = countries
+  const state = countries
     .reduce((acc, country) => {
       country.cities.forEach((city) => {
-        acc.push({ ...city, country: country.name });
+        acc.push({
+          ...city,
+          country: country.name,
+          isRight: false,
+          isOpen: false,
+        });
         return acc;
       });
       return acc;
     }, [])
     .sort(() => Math.random() - 0.5);
 
-  const [cards, setCards] = useState(cities);
+  const [cards, setCards] = useState(state);
 
   const [buttons, setButtons] = useState(
     countries.reduce((acc, country, index) => {
@@ -36,17 +41,70 @@ const App = () => {
       })
     );
     if (name === "Все страны") {
-      setCards(cities);
+      setCards(state);
 
       return;
     }
-    setCards(cities.filter((city) => city.country === name));
+    setCards(state.filter((city) => city.country === name));
+    console.log(cards);
+  };
+
+  const onClickCard = (city) => {
+    const newCards = cards.map((card) => {
+      if (card.name === city) {
+        return { ...card, isOpen: !card.isOpen };
+      } else return { ...card, isOpen: card.name === city };
+    });
+
+    setCards(newCards);
+  };
+
+  const onMouseEnterCard = (city) => {
+    const newCards = cards.map((card) => {
+      if (card.name === city) {
+        return { ...card, isOpen: true };
+      } else return { ...card, isOpen: false };
+    });
+
+    setCards(newCards);
+  };
+
+  const onMouseLeaveCard = (city) => {
+    const newCards = cards.map((card) => {
+      if (card.name === city) {
+        return { ...card, isOpen: false };
+      } else return { ...card, isOpen: false };
+    });
+
+    setCards(newCards);
+  };
+
+  const onSlideChange = (swiper) => {
+    const cardsPerLine = Math.floor(cards.length / 2);
+    setCards(
+      cards.map((card, index) => {
+        return {
+          ...card,
+          isRight:
+            index % (cardsPerLine + 1) < swiper.activeIndex + 6 &&
+            index % (cardsPerLine + 1) >= swiper.activeIndex + 4
+              ? true
+              : false,
+        };
+      })
+    );
   };
 
   return (
     <div className="main">
       <Header buttons={buttons} onClick={onClick} />
-      <Swiper cards={cards} />
+      <Swiper
+        cards={cards}
+        onSlideChange={onSlideChange}
+        onClickCard={onClickCard}
+        onMouseEnterCard={onMouseEnterCard}
+        onMouseLeaveCard={onMouseLeaveCard}
+      />
     </div>
   );
 };

@@ -5,7 +5,6 @@ import "./styles.scss";
 const Header = ({ buttons, onClick }) => (
   <header classname="header">
     <h2 className="header__title">Наши направления</h2>
-    {console.log(buttons)}
     <div className="header__menu">
       <ul className="countries">
         {buttons.map((button) => {

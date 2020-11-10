@@ -12,7 +12,12 @@
   color: #fff;
 }
 .header__menu {
-  margin: 0 0 32px 0;
+  margin: 0 0 25px 0;
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .header__menu {
+    margin: 0 0 7px 0;
+  }
 }
 .countries {
   margin: 0;
@@ -22,7 +27,7 @@
   flex-wrap: wrap;
 }
 .countries__item {
-  margin: 0 14px 0 0;
+  margin: 0 14px 7px 0;
 }
 .countries__button {
   padding: 8px 20px;
