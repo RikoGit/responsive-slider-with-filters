@@ -3,31 +3,25 @@ import React, { useState } from "react";
 import Header from "../Header/index.jsx";
 import Swiper from "../Swiper/index.jsx";
 import countries from "../../countries.js";
-
+import getAllCountries from "../../utils/getAllCountries.js";
 import "./styles.scss";
+
+let cards = getAllCountries();
+console.log(cards);
 
 const App = () => {
   const [swiper, setSwiper] = useState(null);
 
-  const state = countries
-    .reduce((acc, country) => {
-      country.cities.forEach((city) => {
-        acc.push({
-          ...city,
-          country: country.name,
-          isRight: false,
-          isOpen: false,
-        });
-        return acc;
-      });
-      return acc;
-    }, [])
-    .sort(() => Math.random() - 0.5);
+  const state = getAllCountries();
 
-  const [cards, setCards] = useState(state);
+  const [, setCardsHook] = useState(cards);
+  const setCards = (newCards) => {
+    cards = newCards;
+    setCardsHook(newCards);
+  };
 
-  const updateCards = (swiper, cards) => {
-    console.log("vtyztv");
+  const updateCards = (swiper) => {
+    console.log("updateCards");
     if (!swiper) return;
     console.log("swiper.slidesPerView = ");
     const cardsPerLine =
@@ -70,18 +64,18 @@ const App = () => {
         else return { ...button, isSelected: false };
       })
     );
+    console.log(name);
     if (name === "Все страны") {
       const newCards = state.map((city) => ({ ...city }));
       setCards(newCards);
-      updateCards(swiper, newCards);
+      updateCards(swiper);
       return;
     }
-    console.log(name);
     const newCards = state
       .filter((city) => city.country === name)
       .map((city) => ({ ...city }));
     setCards(newCards);
-    updateCards(swiper, newCards);
+    updateCards(swiper);
     //console.log(cards);
   };
 
@@ -116,15 +110,7 @@ const App = () => {
     setCards(newCards);
   };
 
-  /*  const onSlideChange = (cards, swiper) => {
-    console.log(cards);
-    console.log("after slider:");
-    updateCards(cards, swiper);
-    console.log(cards);
-  };
-*/
-
-  const onSlideChange = (swiper, cards) => {
+  const onSlideChange = (swiper) => {
     console.log("slider:");
     console.log(cards);
     console.log("after slider:");
@@ -142,7 +128,7 @@ const App = () => {
       <Swiper
         onSwiper={onSwiper}
         cards={cards}
-        onChange={(swiper) => onSlideChange(swiper, cards)}
+        onChange={onSlideChange}
         onCloseCard={onCloseCard}
         onMouseEnterCard={onMouseEnterCard}
         onMouseLeaveCard={onMouseLeaveCard}

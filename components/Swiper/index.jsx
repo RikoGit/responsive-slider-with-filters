@@ -53,7 +53,7 @@ export default ({
       watchOverflow
       onInit={(swiper) => {
         console.log("ddd");
-        onChange(swiper, cards);
+        onChange(swiper);
       }}
       onSlideChange={(swiper) => {
         console.log("silderchange");
