@@ -9,7 +9,7 @@ const Card = ({
   img,
   isRight,
   isOpen,
-  onClick,
+  onClose,
   onMouseEnter,
   onMouseLeave,
 }) => (
@@ -17,7 +17,6 @@ const Card = ({
     className={`card${isOpen ? " card_open" : ""}${
       isRight ? " card_position_right" : ""
     }`}
-    // onClick={() => onClick(city)}
     onMouseEnter={() => onMouseEnter(city)}
     onMouseLeave={() => onMouseLeave(city)}
   >
@@ -28,8 +27,21 @@ const Card = ({
     </div>
     <div className="card__description">
       <div className="card__text">{description}</div>
-      <button className="card__button" type="button">
+      <button
+        className="card__button"
+        type="button"
+        onClick={() => {
+          console.log("about");
+        }}
+      >
         Подробнее
+      </button>
+      <button
+        type="button"
+        className="card__close"
+        onClick={() => onClose(city)}
+      >
+        x
       </button>
     </div>
   </div>

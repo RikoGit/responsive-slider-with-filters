@@ -72,6 +72,28 @@
   line-height: 22px;
   color: #fff;
 }
+.card__close {
+  display: none;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  right: 16px;
+  top: 25px;
+  color: #fff;
+  border: none;
+  outline: none;
+  white-space: nowrap;
+  background: transparent;
+  cursor: pointer;
+}
+.card_position_right .card__close {
+  left: 16px;
+}
+@media only screen and (max-width: 1440px) {
+  .card__close {
+    display: block;
+  }
+}
 .card_open {
   .card__description {
     display: block;
@@ -145,7 +167,9 @@
   background: transparent;
 }
 .card__button:active,
-.card__button:focus {
+.card__button:focus,
+.card__close:active,
+.card__close:focus {
   outline: none;
 }
 

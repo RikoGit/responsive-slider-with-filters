@@ -17,13 +17,17 @@ import Card from "../Card/index.jsx";
 
 export default ({
   cards,
-  onSlideChange,
-  onClickCard,
+  onChange,
+  onCloseCard,
+  onSwiper,
   onMouseEnterCard,
   onMouseLeaveCard,
 }) => {
   return (
     <Swiper
+      onSwiper={(swiper) => {
+        onSwiper(swiper);
+      }}
       spaceBetween={10}
       slidesPerColumn={2}
       slidesPerColumnFill={"row"}
@@ -48,15 +52,17 @@ export default ({
       pagination={{ clickable: true }}
       watchOverflow
       onInit={(swiper) => {
-        console.log("init");
-        onSlideChange(swiper);
+        console.log("ddd");
+        onChange(swiper, cards);
       }}
-      onUpdate={() => console.log("update")}
       onSlideChange={(swiper) => {
-        onSlideChange(swiper);
+        console.log("silderchange");
+        console.log(cards);
+        onChange(swiper);
       }}
       grabCursor
     >
+      {console.log(cards)}
       {cards.map((card) => (
         <SwiperSlide>
           <Card
@@ -66,8 +72,8 @@ export default ({
             description={card.description}
             img={card.img}
             isRight={card.isRight}
-            onClick={onClickCard}
             isOpen={card.isOpen}
+            onClose={onCloseCard}
             onMouseEnter={onMouseEnterCard}
             onMouseLeave={onMouseLeaveCard}
           ></Card>
