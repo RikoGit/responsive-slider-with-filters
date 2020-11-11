@@ -48,8 +48,10 @@ export default ({
       pagination={{ clickable: true }}
       watchOverflow
       onInit={(swiper) => {
+        console.log("init");
         onSlideChange(swiper);
       }}
+      onUpdate={() => console.log("update")}
       onSlideChange={(swiper) => {
         onSlideChange(swiper);
       }}

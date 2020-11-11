@@ -26,7 +26,12 @@ const Card = ({
       <div className="card__country">{country}</div>
       <div className="card__city">{city}</div>
     </div>
-    <div className="card__description">{description}</div>
+    <div className="card__description">
+      <div className="card__text">{description}</div>
+      <button className="card__button" type="button">
+        Подробнее
+      </button>
+    </div>
   </div>
 );
 

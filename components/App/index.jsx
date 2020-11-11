@@ -80,9 +80,13 @@ const App = () => {
   };
 
   const onSlideChange = (swiper) => {
-    const cardsPerLine = Math.floor(cards.length / 2);
+    console.log("change");
+    const cardsPerLine = Math.round(cards.length / 2) - 1;
+    console.log("cards.length = " + cards.length);
+    console.log("cardsPerLine = " + cardsPerLine);
     setCards(
       cards.map((card, index) => {
+        console.log("index = " + (index % (cardsPerLine + 1)));
         return {
           ...card,
           isRight:
