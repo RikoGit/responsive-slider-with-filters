@@ -7,6 +7,7 @@ const Card = ({
   city,
   description,
   img,
+  isLeft,
   isRight,
   isOpen,
   onClose,
@@ -15,8 +16,8 @@ const Card = ({
 }) => (
   <div
     className={`card${isOpen ? " card_open" : ""}${
-      isRight ? " card_position_right" : ""
-    }`}
+      isLeft ? " card_position_left" : ""
+    }${isRight ? " card_position_right" : ""}`}
     onMouseEnter={() => onMouseEnter(city)}
     onMouseLeave={() => onMouseLeave(city)}
   >
@@ -41,7 +42,7 @@ const Card = ({
         className="card__close"
         onClick={() => onClose(city)}
       >
-        x
+        &times;
       </button>
     </div>
   </div>

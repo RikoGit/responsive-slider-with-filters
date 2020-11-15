@@ -21,27 +21,26 @@ const App = () => {
   };
 
   const updateCards = (swiper) => {
+    const { slidesPerView } = swiper.params;
+    const numberOfRightElements = slidesPerView === 6 ? 2 : 1;
+
     console.log("updateCards");
     if (!swiper) return;
-    console.log("swiper.slidesPerView = ");
+    console.log("slidesPerView = " + slidesPerView);
     const cardsPerLine =
-      cards.length > 6 * 2 ? Math.round(cards.length / 2) - 1 : 5;
+      cards.length > slidesPerView * 2
+        ? Math.round(cards.length / 2) - 1
+        : slidesPerView - 1;
     setCards(
       cards.map((card, index) => ({
         ...card,
+        isOpen: false,
+        isLeft: index % (cardsPerLine + 1) === swiper.activeIndex,
+        isSecondRow: index > 6 && cards.length <= 12 ? true : false,
         isRight:
-          index % (cardsPerLine + 1) < swiper.activeIndex + 6 &&
-          index % (cardsPerLine + 1) >= swiper.activeIndex + 4
-            ? true
-            : false,
-      }))
-    );
-    console.log(
-      cards.map((card, index) => ({
-        ...card,
-        isRight:
-          index % (cardsPerLine + 1) < swiper.activeIndex + 6 &&
-          index % (cardsPerLine + 1) >= swiper.activeIndex + 4
+          index % (cardsPerLine + 1) < swiper.activeIndex + slidesPerView &&
+          index % (cardsPerLine + 1) >=
+            swiper.activeIndex + slidesPerView - numberOfRightElements
             ? true
             : false,
       }))

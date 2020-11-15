@@ -34,12 +34,12 @@ export default ({
       breakpoints={{
         // when window width is >= 375 and <= 767
         375: {
-          spaceBetween: 10,
+          spaceBetween: 20,
           slidesPerView: 2,
         },
         // when window width is >= 768 and <= 1439
         768: {
-          spaceBetween: 30,
+          spaceBetween: 20,
           slidesPerView: 3,
         },
         // when window width is >= 1440px
@@ -58,12 +58,11 @@ export default ({
       }}
       onSlideChange={(swiper) => {
         console.log("silderchange");
-        console.log(cards);
+        console.log(swiper.params);
         onChange(swiper);
       }}
       grabCursor
     >
-      {console.log(cards)}
       {cards.map((card) => (
         <SwiperSlide>
           <Card
@@ -72,6 +71,7 @@ export default ({
             city={card.name}
             description={card.description}
             img={card.img}
+            isLeft={card.isLeft}
             isRight={card.isRight}
             isOpen={card.isOpen}
             onClose={onCloseCard}
