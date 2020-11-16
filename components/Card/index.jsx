@@ -28,13 +28,7 @@ const Card = ({
     </div>
     <div className="card__description">
       <div className="card__text">{description}</div>
-      <button
-        className="card__button"
-        type="button"
-        onClick={() => {
-          console.log("about");
-        }}
-      >
+      <button className="card__button" type="button">
         Подробнее
       </button>
       <button

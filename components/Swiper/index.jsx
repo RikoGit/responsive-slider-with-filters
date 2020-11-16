@@ -48,17 +48,13 @@ export default ({
           slidesPerView: 6,
         },
       }}
-      onBreakpoint={(swiper) => console.log(swiper.breakpoint)}
       navigation
       pagination={{ clickable: true }}
       watchOverflow
       onInit={(swiper) => {
-        console.log("ddd");
         onChange(swiper);
       }}
       onSlideChange={(swiper) => {
-        console.log("silderchange");
-        console.log(swiper.params);
         onChange(swiper);
       }}
       grabCursor

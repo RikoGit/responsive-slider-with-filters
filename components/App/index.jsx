@@ -7,7 +7,6 @@ import getAllCountries from "../../utils/getAllCountries.js";
 import "./styles.scss";
 
 let cards = getAllCountries();
-console.log(cards);
 
 const App = () => {
   const [swiper, setSwiper] = useState(null);
@@ -24,9 +23,7 @@ const App = () => {
     const { slidesPerView } = swiper.params;
     const numberOfRightElements = slidesPerView === 6 ? 2 : 1;
 
-    console.log("updateCards");
     if (!swiper) return;
-    console.log("slidesPerView = " + slidesPerView);
     const cardsPerLine =
       cards.length > slidesPerView * 2
         ? Math.round(cards.length / 2) - 1
@@ -63,7 +60,6 @@ const App = () => {
         else return { ...button, isSelected: false };
       })
     );
-    console.log(name);
     if (name === "Все страны") {
       const newCards = state.map((city) => ({ ...city }));
       setCards(newCards);
@@ -75,7 +71,6 @@ const App = () => {
       .map((city) => ({ ...city }));
     setCards(newCards);
     updateCards(swiper);
-    //console.log(cards);
   };
 
   const onCloseCard = (city) => {
@@ -97,7 +92,6 @@ const App = () => {
 
     setCards(newCards);
   };
-  console.log("Render App");
 
   const onMouseLeaveCard = (city) => {
     const newCards = cards.map((card) => {
@@ -110,11 +104,7 @@ const App = () => {
   };
 
   const onSlideChange = (swiper) => {
-    console.log("slider:");
-    console.log(cards);
-    console.log("after slider:");
     updateCards(swiper, cards);
-    console.log(cards);
   };
 
   const onSwiper = (swiper) => {
