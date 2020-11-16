@@ -1,35 +1,47 @@
 @font-face {
   font-family: "Golos";
-  src: url("./Golos/Text_Bold.eot");
+  src: url("./Golos/bold.eot");
   src: local("Golos"),
-    url("./Golos/Text_Boldm.eot?#iefix") format("embedded-opentype"),
-    url("./Golos/Text_Bold.woff2") format("woff2"),
-    url("./Golos/Text_Bold.woff") format("woff"),
-    url("./Golos/Text_Bold.ttf") format("truetype");
+    url("./Golos/boldm.eot?#iefix") format("embedded-opentype"),
+    url("./Golos/bold.woff2") format("woff2"),
+    url("./Golos/bold.woff") format("woff"),
+    url("./Golos/bold.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Golos";
-  src: url("./Golos/Text_Medium.eot");
+  src: url("./Golos/demiBold.eot");
   src: local("Golos"),
-    url("./Golos/Text_Medium.eot?#iefix") format("embedded-opentype"),
-    url("./Golos/Text_Medium.woff2") format("woff2"),
-    url("./Golos/Text_Medium.woff") format("woff"),
-    url("./Golos/Text_Medium.ttf") format("truetype");
+    url("./Golos/demiBold.eot?#iefix") format("embedded-opentype"),
+    url("./Golos/demiBold.woff2") format("woff2"),
+    url("./Golos/demiBold.woff") format("woff"),
+    url("./Golos/demiBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Golos";
+  src: url("./Golos/medium.eot");
+  src: local("Golos"),
+    url("./Golos/medium.eot?#iefix") format("embedded-opentype"),
+    url("./Golos/medium.woff2") format("woff2"),
+    url("./Golos/medium.woff") format("woff"),
+    url("./Golos/medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Golos";
-  src: url("./Golos/Text_Regular.eot");
+  src: url("./Golos/regular.eot");
   src: local("Golos"),
-    url("./Golos/Text_Regular.eot?#iefix") format("embedded-opentype"),
-    url("./Golos/Text_Regular.woff2") format("woff2"),
-    url("./Golos/Text_Regular.woff") format("woff"),
-    url("./Golos/Text_Regular.ttf") format("truetype");
+    url("./Golos/regular.eot?#iefix") format("embedded-opentype"),
+    url("./Golos/regular.woff2") format("woff2"),
+    url("./Golos/regular.woff") format("woff"),
+    url("./Golos/regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

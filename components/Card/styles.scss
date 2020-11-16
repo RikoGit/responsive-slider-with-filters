@@ -3,9 +3,16 @@
   $height: 100%;
   $spaceBetween: 30px;
   $border-radius: 8px;
-  $font: Golos, Arial, Helvetica, sans-serif;
   $color: #fff;
   $button-color: #0047fe;
+
+  @mixin _font($family, $size, $lineHeight, $style, $weight) {
+    font-family: $family;
+    font-size: $size;
+    font-style: $style;
+    font-weight: $weight;
+    line-height: $lineHeight;
+  }
 
   @mixin _card-size() {
     width: $width;
@@ -37,15 +44,11 @@
     position: absolute;
     left: 12px;
     right: 12px;
-    font-family: Golos;
-    font-style: normal;
-    font-size: $size;
-    line-height: $lineheight;
-    color: #fff;
+    @include _font(Golos, $size, $lineheight, normal, $weight);
+    color: $color;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    font-weight: $weight;
   }
 
   margin: 0;
@@ -108,12 +111,8 @@
     box-sizing: border-box;
     background: rgba(37, 69, 149, 1);
     @include _border-radius-right();
-    font-family: Golos;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
-    color: #fff;
+    @include _font(Golos, 16px, 22px, normal, normal);
+    color: $color;
     z-index: 100;
   }
 
@@ -142,13 +141,9 @@
     box-sizing: border-box;
     height: 50px;
     border-radius: $border-radius;
-    font-family: Golos;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 24px;
+    @include _font(Golos, 16px, 24px, normal, 900);
     text-align: center;
-    color: #fff;
+    color: $color;
     outline: none;
     white-space: nowrap;
     background: transparent;
@@ -167,7 +162,7 @@
     width: 20px;
     height: 20px;
     font-size: 20px;
-    color: #fff;
+    color: $color;
     border: none;
     outline: none;
     white-space: nowrap;

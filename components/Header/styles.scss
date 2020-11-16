@@ -1,3 +1,11 @@
+@mixin _font($family, $size, $lineHeight, $style, $weight) {
+  font-family: $family;
+  font-size: $size;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+
 .header {
   $border-radius: 8px;
 
@@ -6,11 +14,7 @@
 
   &__title {
     margin: 7px 0 16px 0;
-    font-family: Roboto;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 53px;
+    @include _font(Golos, 36px, 53px, normal, 800);
     color: #fff;
   }
 
@@ -50,14 +54,10 @@
 
   &__button {
     padding: 8px 20px;
-    font-family: Golos;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
+    @include _font(Golos, 16px, 20px, normal, 500);
     border: none;
     outline: none;
     border-radius: 8px;
-    line-height: 20px;
     color: #fff;
     text-align: center;
     background: none;
@@ -84,20 +84,6 @@
       }
     }
   }
-
-  /*  &__button:active,
-  &__button:focus,
-  &__button_disabled {
-    border: none;
-    outline: none;
-    background: #80a0f2;
-  }
-  &__button:hover {
-    border: none;
-    outline: none;
-    background: #a5beff;
-  }
-    */
 
   @media only screen and (max-width: 767px) {
     $colorIsOpen: #254595;
