@@ -28,12 +28,12 @@ export default ({
       onSwiper={(swiper) => {
         onSwiper(swiper);
       }}
-      spaceBetween={10}
+      spaceBetween={20}
       slidesPerColumn={2}
       slidesPerColumnFill={"row"}
       breakpoints={{
         // when window width is >= 375 and <= 767
-        375: {
+        0: {
           spaceBetween: 20,
           slidesPerView: 2,
         },

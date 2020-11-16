@@ -7,8 +7,6 @@
   $color: #fff;
   $button-color: #0047fe;
 
-  z-index: -1;
-
   @mixin _card-size() {
     width: $width;
     height: $height;
@@ -227,8 +225,26 @@
     @include _border-radius-right();
   }
 
+  @mixin _open-card-size($cell, $outside, $inner) {
+    width: calc(100vw - #{$outside} * 2);
+  }
+
   @media only screen and (max-width: 1439px) {
     $spaceBetween: 20px;
+
+    &_open &__description {
+      top: 50%;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:after {
+      height: auto;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
 
     &__close {
       display: block;
@@ -255,36 +271,67 @@
       top: 0;
       height: $height;
     }
+
+    &_open {
+      position: absolute;
+      top: 30px;
+      bottom: 30px;
+      height: auto;
+    }
   }
 
   @mixin _open-container($cell, $value) {
-    @include _width($cell, $value, 2);
-    height: calc(#{$height} + #{$value} / 2);
+    width: 100%;
+    height: 50%;
     background: #fff;
     border-radius: $border-radius $border-radius 0 0;
     z-index: 20;
   }
 
   @mixin _open-description($cell, $value, $spaceCount) {
-    @include _width($cell, $value, 2);
-    height: calc(#{$height} + #{$value});
-    top: calc(#{$height} + #{$value} / #{$spaceCount});
+    width: 100%;
+    height: 50%;
     border-radius: 0 0 $border-radius $border-radius;
-    left: calc(-#{$height} - #{$spaceBetween});
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1439px) {
     $spaceBetween: 20px;
+    $spaceOutside: 40px;
+
+    &_open {
+      @include _open-card-size(3, $spaceOutside, $spaceBetween);
+      margin-left: calc(
+        -#{$spaceBetween} -
+          ((100vw - #{$spaceOutside} * 2) - #{$spaceBetween} * 2) / 3
+      );
+    }
 
     &_open &__container {
       @include _open-container(3, $spaceBetween);
-      left: calc(-#{$height} - #{$spaceBetween});
     }
 
-    &:after {
-      @include _width(3, $spaceBetween, 2);
-      left: calc(-2 * #{$height} - #{$spaceBetween});
-      height: calc(2 * #{$height} + #{$spaceBetween});
+    &_position_left,
+    &_position_right {
+      :after {
+        @include _width(3, $spaceBetween, 2);
+        left: calc(-2 * #{$height} - #{$spaceBetween});
+        height: calc(2 * #{$height} + #{$spaceBetween});
+        right: auto;
+        bottom: auto;
+        top: auto;
+      }
+    }
+
+    &_position_right,
+    &_position_left {
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      bottom: auto;
+      width: $width;
+      height: $height;
+      margin-left: 0;
     }
 
     &_position_left {
@@ -309,6 +356,9 @@
         height: $height;
         left: 0;
         right: 0;
+        position: relative;
+        top: 0;
+        bottom: 0;
       }
     }
 
@@ -333,30 +383,50 @@
     &_position_right &__description,
     &_position_left &__description {
       width: calc(200% + 40px);
+      left: auto;
+      right: auto;
+      bottom: auto;
+    }
+
+    &_position_left &__description {
+      left: 100%;
+    }
+
+    &_position_right &__description {
+      right: 100%;
     }
   }
 
   @media only screen and (max-width: 767px) {
     $spaceBetween: 20px;
+    $spaceOutside: 20px;
+
+    &_open {
+      @include _open-card-size(2, $spaceOutside, $spaceBetween);
+    }
 
     &_open &__container {
       @include _open-container(2, $spaceBetween);
     }
 
     &_open {
+      &.card_position_right .card__container,
       &.card_position_left .card__container {
-        left: 0;
-      }
-    }
-
-    &_open {
-      &.card_position_right .card__container {
-        left: calc(-#{$width} - #{$spaceBetween});
         @include _border-radius-top();
       }
     }
 
+    &_open {
+      &.card_position_right {
+        margin-left: calc(
+          -#{$spaceBetween} -
+            ((100vw - #{$spaceOutside} * 2) - #{$spaceBetween} * 1) / 2
+        );
+      }
+    }
+
     &_open &__description {
+      top: 50%;
       @include _open-description(2, $spaceBetween, 2);
     }
 
