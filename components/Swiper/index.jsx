@@ -54,6 +54,9 @@ export default ({
       onInit={(swiper) => {
         onChange(swiper);
       }}
+      onResize={(swiper) => {
+        onChange(swiper);
+      }}
       onSlideChange={(swiper) => {
         onChange(swiper);
       }}

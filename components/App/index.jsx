@@ -64,6 +64,7 @@ const App = () => {
       const newCards = state.map((city) => ({ ...city }));
       setCards(newCards);
       updateCards(swiper);
+
       return;
     }
     const newCards = state
