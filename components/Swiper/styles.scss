@@ -134,6 +134,10 @@ $spaceBetween: 30px;
   .swiper-button-next {
     display: none;
   }
+  .swiper-container-android .swiper-slide,
+  .swiper-slide {
+    transform: none !important;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .swiper-pagination {
@@ -143,11 +147,5 @@ $spaceBetween: 30px;
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
   .swiper-container {
     margin-top: -16px;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .swiper-container-android .swiper-slide {
-    transform: none;
   }
 }
