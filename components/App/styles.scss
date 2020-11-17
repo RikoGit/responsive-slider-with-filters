@@ -8,8 +8,12 @@ body {
 .main {
   margin: 0 auto;
   padding: 38px 126px;
+  display: grid;
+  height: auto;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr;
   box-sizing: border-box;
-  height: calc(100vh - 134px);
+  //height: calc(100vh - 134px);
 }
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
   .main {

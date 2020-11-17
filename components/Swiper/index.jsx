@@ -3,17 +3,12 @@ import React from "react";
 import SwiperCore, { Navigation, Pagination } from "swiper";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
-//import "swiper/swiper.scss";
-//import "swiper/navigation.scss";
-//import "swiper/pagination.scss";
 
+import Card from "../Card/index.jsx";
 import "./styles.scss";
 
 // install Swiper components
 SwiperCore.use([Navigation, Pagination]);
-
-import Card from "../Card/index.jsx";
 
 export default ({
   cards,
